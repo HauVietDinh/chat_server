@@ -42,7 +42,7 @@ users(RoomId) ->
 init(RoomId) ->
     process_flag(trap_exit, true),
     {ok, TableName} = integer_to_atom(RoomId),
-    ets:new(TableName, [ordered_set, public, named_table, {keypos, 2}]),
+    ets:new(TableName, [ordered_set, public, named_table, {keypos, 4}]),
     %% create ETS table for messages
     State = #{room_id => RoomId,
               msg_table => TableName,
